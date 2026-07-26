@@ -1,11 +1,8 @@
-title = 台鐵查詢
-package.name = railwayapp
-package.domain = org.example
-source.dir = .
-source.include_exts = py,png,jpg,kv,atlas
+# 必須加入 cython 與套件
+requirements = python3,kivy==2.3.0,requests,beautifulsoup4,certifi,urllib3,chardet,idna
 
-# ⚠️ 注意：必須將 beautifulsoup4 及 requests 放入編譯依賴庫中
-requirements = python3,kivy,requests,beautifulsoup4,certifi
-
-orientation = portrait
-permission = INTERNET
+# 指定 Android API 版本（避免版本衝擊）
+android.api = 33
+android.minapi = 21
+android.ndk_api = 21
+android.accept_sdk_license = True
