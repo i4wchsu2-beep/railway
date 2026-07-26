@@ -31,6 +31,11 @@ jobs:
           pip install --upgrade pip
           pip install "cython<3.0.0" buildozer
 
+      # 💡 關鍵步驟：預先自動同意所有 Android SDK/NDK 授權合約
+      - name: Accept Android Licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - name: Build APK with Buildozer
         run: |
           buildozer -v android debug
