@@ -27,7 +27,7 @@ jobs:
       - name: Install Buildozer & System Dependencies
         run: |
           sudo apt-get update
-          # 💡 關鍵修復：補上 libtool, gettext, pkg-config, automake 補齊 autoconf 巨集
+          # 💡 關鍵修復：補齊 autoconf/libtool 所需的巨集檔案
           sudo apt-get install -y git zip unzip autoconf automake libtool gettext pkg-config zlib1g-dev libncurses-dev cmake libffi-dev libssl-dev
           pip install --upgrade pip
           pip install "cython<3.0.0" buildozer
