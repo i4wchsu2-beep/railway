@@ -27,7 +27,8 @@ jobs:
       - name: Install Buildozer & System Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev libncurses-dev cmake libffi-dev libssl-dev
+          # 💡 關鍵修復：補上 libtool, gettext, pkg-config, automake 補齊 autoconf 巨集
+          sudo apt-get install -y git zip unzip autoconf automake libtool gettext pkg-config zlib1g-dev libncurses-dev cmake libffi-dev libssl-dev
           pip install --upgrade pip
           pip install "cython<3.0.0" buildozer
 
@@ -35,7 +36,6 @@ jobs:
         run: |
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
-      # 💡 關鍵修復：清空 GitHub Actions 系統自帶的 NDK 27+ 變數，避免與 r25b 衝突
       - name: Build APK with Buildozer
         env:
           ANDROID_NDK_HOME: ""
