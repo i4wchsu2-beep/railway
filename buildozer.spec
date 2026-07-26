@@ -18,7 +18,7 @@ source.include_exts = py,png,jpg,kv,atlas
 # (str) Application versioning
 version = 0.1
 
-# 💡 關鍵修復：精簡 requirements，僅保留核心庫
+# (list) Application requirements
 requirements = python3,kivy==2.3.0,openssl,requests,beautifulsoup4,certifi
 
 # (str) Supported orientation
@@ -31,7 +31,7 @@ fullscreen = 0
 permissions = INTERNET
 
 # (int) Target Android API
-android.api = 33
+android.api = 31
 
 # (int) Minimum API
 android.minapi = 21
