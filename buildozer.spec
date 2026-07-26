@@ -15,8 +15,10 @@ source.dir = .
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
 
+# (str) Application versioning (method 1)
+version = 0.1
+
 # (list) Application requirements
-# comma separated e.g. requirements = sqlite3,kivy
 requirements = python3,kivy==2.3.0,requests,beautifulsoup4,certifi,urllib3,chardet,idna
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
@@ -34,7 +36,7 @@ android.api = 33
 # (int) Minimum API your APK will support.
 android.minapi = 21
 
-# (int) Android NDK API to use. This is the minimum API your app will support
+# (int) Android NDK API to use.
 android.ndk_api = 21
 
 # (bool) Accept SDK license
