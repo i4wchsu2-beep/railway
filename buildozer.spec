@@ -18,9 +18,8 @@ source.include_exts = py,png,jpg,kv,atlas
 # (str) Application versioning
 version = 0.1
 
-# (list) Application requirements
-# 💡 補上 openssl，這是 requests 與 urllib3 進行 HTTPS 網路請求所必需的底層庫
-requirements = python3,kivy==2.3.0,openssl,requests,beautifulsoup4,certifi,urllib3,chardet,idna
+# 💡 關鍵修復：精簡 requirements，僅保留核心庫
+requirements = python3,kivy==2.3.0,openssl,requests,beautifulsoup4,certifi
 
 # (str) Supported orientation
 orientation = portrait
@@ -40,10 +39,10 @@ android.minapi = 21
 # (int) Android NDK API
 android.ndk_api = 21
 
-# 💡 指定相容性最好的 NDK 版本
+# 固定使用 NDK r25b
 android.ndk = 25b
 
-# 💡 鎖定 64 位元架構
+# 鎖定 64 位元架構
 android.archs = arm64-v8a
 
 # (bool) Accept SDK license
