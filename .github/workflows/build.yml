@@ -10,30 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Build with Buildozer Action
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
         with:
-          python-version: "3.10"
+          command: buildozer android debug
+          buildozer_version: master
 
-      # 安裝 Buildozer 與必要編譯套件
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install buildozer cython setuptools
-          sudo apt-get update
-          sudo apt-get install -y ccache git libffi-dev libssl-dev python3-dev zip unzip openjdk-17-jdk
-
-      # 執行編譯
-      - name: Build with Buildozer
-        run: |
-          buildozer -v android debug
-
-      # 上傳產出的 APK
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: RailwayApp-APK
-          path: bin/*.apk
+          path: ${{ steps.buildozer.outputs.filename }}
